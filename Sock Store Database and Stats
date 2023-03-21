@@ -1,0 +1,39 @@
+--Create a sock store database
+
+CREATE TABLE socks (id INTEGER, name TEXT, color TEXT, size TEXT, material TEXT, price INTEGER, inventory INTEGER );
+
+INSERT INTO socks VALUES
+
+(1, "alpha", "red", "S", "cotton", 9.99, 100),
+(2, "beta", "red", "S", "persian cotton", 89.99, 100),
+(3, "gamma", "red", "S", "cotton", 14.99, 50),
+(4, "delta", "red", "S", "steel wool", 49.99, 1),
+(5, "pi", "white", "S", "cashmere", 549.99, 1),
+(6, "omega", "white", "S", "wool", 9.99, 100),
+(7, "super", "white", "M", "cashmere", 699.99, 1),
+(8, "ultra", "white", "M", "wool", 4.99, 100),
+(9, "double", "blue", "M", "fleece", 14.99, 200),
+(10, "pony", "blue", "M", "towel", 19.99, 50),
+(11, "dog", "blue", "M", "cotton", 4.99, 50),
+(12, "cat", "blue", "L", "cotton", 4.99, 50),
+(13, "pizza", "purple", "L", "fleece", 14.99, 75),
+(14, "football", "orange", "XL", "fleece", 19.99, 10),
+(15, "computer", "yellow", "XS", "fleece", 5.99, 10);
+
+--display most expensive items with only name, material, price
+SELECT name, price, material FROM socks ORDER BY price desc
+
+--display most expensive items with full details
+SELECT * FROM socks ORDER BY price desc
+
+--what is the average price of all cotton socks? 
+SELECT AVG(price) "avg cotton sock price" FROM socks WHERE material='cotton';
+-- $8.75, very reasonable.
+
+--what is the average price of all socks? 
+SELECT AVG(price) "avg sock price" FROM socks;
+-- ~$96! Those cashmere socks are totally skewing the average price.
+
+--what are the 5 most popular items? (largest inventory)
+SELECT name, price, inventory FROM socks ORDER by inventory desc LIMIT 5;
+-- Seems reasonable that most of those cheap socks (double, alpha, beta, omega, ultra) with cheap prices have the highest inventory. Wouldn't want a ton of "super" or "pi" cashmere socks with huge prices.
