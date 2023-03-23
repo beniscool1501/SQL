@@ -79,6 +79,9 @@ INSERT INTO superbowls(Date,SB,Winner,Winner_Pts,Loser,Loser_Pts,MVP,MVP_Pos,Sta
 
 /* Which SB had the highest winner points? Lowest? */
 
+SELECT WINNER, Winner_Pts, SB FROM superbowls GROUP BY -Winner_Pts; /* SF scored 55 points in SB 24! Huge smackdown for that era. /*
+SELECT WINNER, Winner_Pts, SB FROM superbowls GROUP BY Winner_Pts; /* New England scored 13 points in SB 53. Sleepiest SB I can remember watching. /*
+
 /* Which SB had the most points scored? Fewest? */
 
 /* Which team has scored the most points in all of their SB appearances? */
