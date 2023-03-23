@@ -77,4 +77,20 @@ INSERT INTO superbowls(Date,SB,Winner,Winner_Pts,Loser,Loser_Pts,MVP,MVP_Pos,Sta
 INSERT INTO superbowls(Date,SB,Winner,Winner_Pts,Loser,Loser_Pts,MVP,MVP_Pos,Stadium,City,State) VALUES ('Jan 14 1968','II (2)','Green Bay Packers',33,'Oakland Raiders',14,'Bart Starr+','QB','Orange Bowl','Miami','Florida');
 INSERT INTO superbowls(Date,SB,Winner,Winner_Pts,Loser,Loser_Pts,MVP,MVP_Pos,Stadium,City,State) VALUES ('Jan 15 1967','I (1)','Green Bay Packers',35,'Kansas City Chiefs',10,'Bart Starr+','QB','Memorial Coliseum','Los Angeles','California');
 
-/*Analysis incoming... */
+/* Which SB had the highest winner points? Lowest? */
+
+/* Which SB had the most points scored? Fewest? */
+
+/* Which team has scored the most points in all of their SB appearances? */
+
+/* Which team has been to the most SBs? */ 
+
+/* Which team has won the most SBs? Least? */
+
+/* Who are the top 5 MVPs in SB history? */
+
+/* Which positions win MVP the most? */
+
+/* Which city has hosted the most SBs? */
+
+/* Which stadium has hosted the most SBs? */
