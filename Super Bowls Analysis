@@ -77,23 +77,44 @@ INSERT INTO superbowls(Date,SB,Winner,Winner_Pts,Loser,Loser_Pts,MVP,MVP_Pos,Sta
 INSERT INTO superbowls(Date,SB,Winner,Winner_Pts,Loser,Loser_Pts,MVP,MVP_Pos,Stadium,City,State) VALUES ('Jan 14 1968','II (2)','Green Bay Packers',33,'Oakland Raiders',14,'Bart Starr+','QB','Orange Bowl','Miami','Florida');
 INSERT INTO superbowls(Date,SB,Winner,Winner_Pts,Loser,Loser_Pts,MVP,MVP_Pos,Stadium,City,State) VALUES ('Jan 15 1967','I (1)','Green Bay Packers',35,'Kansas City Chiefs',10,'Bart Starr+','QB','Memorial Coliseum','Los Angeles','California');
 
-/* Which SB had the highest winner points? Lowest? */
+/* Question #1: Which SB had the highest winner points? Lowest? */
 
 SELECT WINNER, Winner_Pts, SB FROM superbowls GROUP BY -Winner_Pts; /* SF scored 55 points in SB 24! Huge smackdown for that era. /*
 SELECT WINNER, Winner_Pts, SB FROM superbowls GROUP BY Winner_Pts; /* New England scored 13 points in SB 53. Sleepiest SB I can remember watching. /*
 
-/* Which SB had the most points scored? Fewest? */
 
-/* Which team has scored the most points in all of their SB appearances? */
+/* Question #2: Which SB had the most points scored? Fewest? */
 
-/* Which team has been to the most SBs? */ 
+SELECT SB, ROUND (Winner_Pts + Loser_Pts) AS Total_Pts FROM superbowls
+    GROUP BY -Total_Pts;
 
-/* Which team has won the most SBs? Least? */
+/* Super Bowl 29 had 75 total points scored, the most in Super Bowl history */
 
-/* Who are the top 5 MVPs in SB history? */
+SELECT SB, ROUND (Winner_Pts + Loser_Pts) AS Total_Pts FROM superbowls
+    GROUP BY Total_Pts;
 
-/* Which positions win MVP the most? */
+/* Unsurprisingly, it was sleepy Super Bowl 53 with a lousy 16 points. New England kept LA out of the endzone the entire game. If only Goff had hit Brandin Cooks a little earlier on that one deep ball... */
 
-/* Which city has hosted the most SBs? */
 
-/* Which stadium has hosted the most SBs? */
+/* Question #3: Which team has scored the most points in all of their SB appearances? */
+
+
+/* Question #4: Which team has been to the most SBs? */ 
+
+
+/* Question #5: Which team has won the most SBs? Least? */
+
+
+/* Question #6: Who are the top 5 MVPs in SB history? */
+
+
+/* Question #7: Which positions win MVP the most? */
+
+
+/* Question #8: Which city has hosted the most SBs? */
+
+
+/* Question #9: Which stadium has hosted the most SBs? */
+
+
+/* TO-DOs: 1. Add more questions 2. Ensure questions display AND/OR, HAVING, CASE 3. Add more to dataset? */
