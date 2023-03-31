@@ -77,10 +77,13 @@ INSERT INTO superbowls(Date,SB,Winner,Winner_Pts,Loser,Loser_Pts,MVP,MVP_Pos,Sta
 INSERT INTO superbowls(Date,SB,Winner,Winner_Pts,Loser,Loser_Pts,MVP,MVP_Pos,Stadium,City,State) VALUES ('Jan 14 1968','II (2)','Green Bay Packers',33,'Oakland Raiders',14,'Bart Starr+','QB','Orange Bowl','Miami','Florida');
 INSERT INTO superbowls(Date,SB,Winner,Winner_Pts,Loser,Loser_Pts,MVP,MVP_Pos,Stadium,City,State) VALUES ('Jan 15 1967','I (1)','Green Bay Packers',35,'Kansas City Chiefs',10,'Bart Starr+','QB','Memorial Coliseum','Los Angeles','California');
 
+
+
 /* Question #1: Which SB had the highest winner points? Lowest? */
 
 SELECT WINNER, Winner_Pts, SB FROM superbowls GROUP BY -Winner_Pts; /* SF scored 55 points in SB 24! Huge smackdown for that era. /*
 SELECT WINNER, Winner_Pts, SB FROM superbowls GROUP BY Winner_Pts; /* New England scored 13 points in SB 53. Sleepiest SB I can remember watching. /*
+
 
 
 /* Question #2: Which SB had the most points scored? Fewest? */
@@ -96,25 +99,36 @@ SELECT SB, ROUND (Winner_Pts + Loser_Pts) AS Total_Pts FROM superbowls
 /* Unsurprisingly, it was sleepy Super Bowl 53 with a lousy 16 points. New England kept LA out of the endzone the entire game. If only Goff had hit Brandin Cooks a little earlier on that one deep ball... */
 
 
-/* Question #3: Which team has scored the most points in all of their SB appearances? */
+
+/* Question 3: Which SB was the biggest blowout? */
+
+SELECT SB, ROUND (Winner_Pts - Loser_Pts) AS Point_Differential FROM superbowls
+    GROUP BY -Point_Differential;
+
+/* Wow, SB 24 looks like it was a huge blowout (45 points!). Let's see the final score */
+
+SELECT SB, Winner, Winner_Pts, Loser, Loser_Pts FROM superbowls
+    WHERE SB LIKE '%24%';
+
+/* San Francisco destroyed Denver 55 to 10. Talk about blowouts! */
 
 
-/* Question #4: Which team has been to the most SBs? */ 
+
+/* Question #4: Which team has scored the most points in all of their SB appearances? */
 
 
-/* Question #5: Which team has won the most SBs? Least? */
+
+/* Question #5: I've heard that the New England Patriots were pretty good during the 2000s. How many SBs did they win in that decade? */ 
 
 
-/* Question #6: Who are the top 5 MVPs in SB history? */
 
+/* Question #6: Wow, looks like the Patriots really were good. And that Tom Brady fella seems to be in a lot of SBs. How many times did he win SB MVP? */
 
-/* Question #7: Which positions win MVP the most? */
+SELECT MVP, Winner, MVP_Pos FROM superbowls
+WHERE MVP LIKE '%Brady%';
 
+/* Huh, he won SB MVP 4 times with New England and once in Tampa Bay. */
 
-/* Question #8: Which city has hosted the most SBs? */
-
-
-/* Question #9: Which stadium has hosted the most SBs? */
 
 
 /* TO-DOs: 1. Add more questions 2. Ensure questions display AND/OR, HAVING, CASE 3. Add more to dataset? */
