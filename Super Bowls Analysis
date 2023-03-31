@@ -2,7 +2,7 @@
 /* Before I get started with my analysis, I'm going to update this dataset with a few additions:  */
 /* 1. Adding results from Super Bowls 55-57  */
 /* 2. Adding any missing MVP Hall of Famers (adding +'s by their names) */
-/* 3. Adding an MVP_Pos category for MVP position. */
+/* 3. Adding an MVP_Pos category for MVP position, as well as point_differential for different between winner and loser points. */
 
 /* Okay, here we go. */
 
@@ -151,6 +151,3 @@ WHERE MVP LIKE '%Brady%';
 
 /* Huh, he won SB MVP 4 times with New England and once in Tampa Bay. */
 
-
-
-/* TO-DOs: 1. Add more questions 2. Ensure questions display AND/OR, HAVING, CASE 3. Add more to dataset? */
