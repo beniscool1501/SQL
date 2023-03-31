@@ -114,11 +114,31 @@ SELECT SB, Winner, Winner_Pts, Loser, Loser_Pts FROM superbowls
 
 
 
-/* Question #4: Which team has scored the most points in all of their SB appearances? */
+/* Question #4: This whole point differential business has got me thinking about which SBs were exciting to watch, and which ones were boring. I think SB24 was boring because it was a blowout and because I like close games. Which SBs were "exciting", "okay", and "boring" based on point differential? */
+
+SELECT date, sb, ROUND (winner_pts - loser_pts) AS point_differential
+CASE
+    WHEN point_differential < 7 THEN "exciting" 
+    WHEN point_differential <= 13 THEN "okay"
+    ELSE "boring"
+    END as "excitement_index"
+FROM superbowls;
+
+^^ why doesn't this work?
 
 
 
 /* Question #5: I've heard that the New England Patriots were pretty good during the 2000s. How many SBs did they win in that decade? */ 
+
+SELECT SB, date, winner FROM superbowls
+WHERE date LIKE '%200%' AND winner LIKE '%New England Patriots%';
+
+/* New England won 3 SBs in the 2000s. That's not soooo many. Let's check the next decade too. */
+
+SELECT SB, date, winner FROM superbowls
+WHERE date LIKE '%201%' AND winner LIKE '%New England Patriots%';
+
+/* Okay that's 3 more SBs in the next decade, I see why the Patriots were so popular. */
 
 
 
